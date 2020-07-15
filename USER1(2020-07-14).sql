@@ -329,5 +329,3 @@ WHERE st_num >= '20010' AND st_num <= '20020';
 SELECT st_num, st_name, st_dept, st_grade
 FROM tbl_student
 WHERE st_num BETWEEN '20010' AND '20020';
-
-
