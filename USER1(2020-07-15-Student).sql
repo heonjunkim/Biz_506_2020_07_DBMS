@@ -69,6 +69,17 @@ CREATE TABLE tbl_score (
     sc_art	NUMBER(3)		
 );
 
+SELECT * FROM tbl_score;
+
+SELECT sc_num,st_name,st_dept,d_name,sc_kor,sc_eng
+FROM tbl_score
+    LEFT JOIN tbl_student
+        ON sc_num = st_num
+    LEFT JOIN tbl_dept
+        ON st_dept = d_code
+WHERE sc_num BETWEEN '20001' AND '20010';
+
+
 
 
 
