@@ -99,9 +99,7 @@ public class OrderInput {
 			System.out.println("SQL 문제 발생");
 			e.printStackTrace();
 		}
-		
 		return true;
-
 		
 	}
 	
@@ -157,7 +155,6 @@ public class OrderInput {
 		if( !str_num.isEmpty() ) {
 			orderVO.setO_num(str_num);
 		}
-
 		
 		System.out.printf("변경할 고객번호( %s ,Enter:변경안함, QUIT:종료) >> "
 				,orderVO.getO_cnum());
@@ -247,4 +244,77 @@ public class OrderInput {
 		
 		return true;
 	}
+
+	public OrderVO detailView() {
+
+		System.out.print("자세히 확인할 SEQ 입력 >> ");
+		String strSeq = scan.next();
+		
+		long longSeq = 0;
+		try {
+			longSeq = Integer.valueOf(strSeq);
+		} catch (Exception e) {
+			System.out.println("SEQ는 숫자만 가능");
+			return null;
+		}
+
+		try {
+			OrderVO orderVO = oService.findBySeq(longSeq);
+			return orderVO;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	
+	}
+	
+	public boolean orderDelete() {
+		
+		System.out.print("삭제할 SEQ(QUIT:종료) >> ");
+		String strSeq = scan.nextLine();
+		if(strSeq.equals("QUIT")) {
+			return false;
+		}
+		
+		long longSeq =0;
+		try {
+			longSeq = Long.valueOf(strSeq);
+		} catch (Exception e) {
+
+			System.out.println("SEQ 는 숫자만 가능");
+			return true;
+		}
+		
+		try {
+			OrderVO orderVO = oService.findBySeq(longSeq);
+			if(orderVO == null) {
+				System.out.println("삭제할 데이터가 없습니다");
+				return true;
+			} else {
+				System.out.printf("주문번호:%s\n 고객번호:%s\n "
+						+ "상품코드:%s\n 의 주문을 삭제할까요?(YES:삭제)",
+						orderVO.getO_num(),
+						orderVO.getO_cnum(),
+						orderVO.getO_pcode());
+				String yesNo = scan.nextLine();
+				if(yesNo.equals("YES")) {
+					int ret = oService.delete(longSeq);
+					if(ret > 0) {
+						System.out.println("삭제완료!!!");
+					} else {
+						System.out.println("삭제 실패");
+					}
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+		
+	}
+	
+	
+	
 }

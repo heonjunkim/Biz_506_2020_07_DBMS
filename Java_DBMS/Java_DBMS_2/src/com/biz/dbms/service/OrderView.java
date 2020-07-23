@@ -6,8 +6,6 @@ import com.biz.dbms.config.Lines;
 import com.biz.dbms.domain.OrderVO;
 
 public class OrderView {
-
-	// List<OrderVO> orList;
 	
 	public void orderList(List<OrderVO> orderList) {
 		

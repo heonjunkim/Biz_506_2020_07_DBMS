@@ -53,8 +53,11 @@ public class JdbcEx_05 {
 					oView.orderList(orderList);
 				} else if (intMenu == 2) {
 					// 전체리스트 보여주고
-					// SEQ 입력받고
-					// detailView
+					orderList = oService.selectAll();
+					oView.orderList(orderList);
+					OrderVO orderVO = oInput.detailView();
+					oView.orderDetailView(orderVO);
+					
 				} else if(intMenu == 3) {
 					
 					if(!oInput.orderInsert()) {
@@ -71,9 +74,19 @@ public class JdbcEx_05 {
 						break;
 					}
 				} else if(intMenu == 5) {
-					// 삭제
+					
+					// 삭제를 위한 리스트 보여주기
 					orderList = oService.selectAll();
 					oView.orderList(orderList);
+					
+					if(!oInput.orderDelete()) {
+						break;
+					}
+
+					// 삭제후 확인을 위한 리스트 보여주기
+					orderList = oService.selectAll();
+					oView.orderList(orderList);
+					
 				} else {
 					System.out.println("업무는 1 ~ 5까지만!!!");
 				}

@@ -9,7 +9,6 @@ import java.util.List;
 
 import com.biz.dbms.config.DBConnection;
 import com.biz.dbms.config.DBContract;
-import com.biz.dbms.config.DBContract.ORDER;
 import com.biz.dbms.domain.OrderVO;
 
 public class OrderServiceImplV1 implements OrderService {
@@ -143,13 +142,16 @@ public class OrderServiceImplV1 implements OrderService {
 		pSt.setLong(7,orderVO.getO_seq()); 		
 		int ret = pSt.executeUpdate();
 		return ret;
-	
 	}
 
 	@Override
-	public int delete(long seq) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int delete(long seq) throws SQLException {
 
+		String sql = DBContract.ORDER_DELETE ;
+		PreparedStatement pSt = dbConn.prepareStatement(sql);
+		pSt.setLong(1, seq);
+		int ret = pSt.executeUpdate();
+		return ret;
+	
+	}
 }

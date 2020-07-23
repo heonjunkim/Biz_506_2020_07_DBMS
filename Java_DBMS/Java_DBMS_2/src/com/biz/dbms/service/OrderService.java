@@ -14,7 +14,7 @@ public interface OrderService {
 	public OrderVO findBySeq(long seq) throws SQLException; // findById(), PK 칼럼을 기준으로 데이터를 SELECT
 	
 	public int update(OrderVO orderVO) throws SQLException;
-	public int delete(long seq);
+	public int delete(long seq) throws SQLException ;
 
 	
 }
