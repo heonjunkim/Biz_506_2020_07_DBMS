@@ -121,7 +121,27 @@ public class JdbcEx_03 {
 			}
 			break;
 		}
-		oService.update(orderVO);
+		
+		try {
+			int ret = oService.update(orderVO);
+			if(ret > 0) {
+				System.out.println("데이터 변경 완료!!");
+				orderVO = oService.findBySeq(orderVO.getO_seq());
+				System.out.println("=================================");
+				System.out.printf("주문번호 : %s\n",orderVO.getO_num());
+				System.out.printf("고객번호 : %s\n",orderVO.getO_cnum());
+				System.out.printf("상품코드 : %s\n",orderVO.getO_pcode());
+				System.out.printf("가격 : %d\n",orderVO.getO_price());
+				System.out.printf("수량 : %d\n",orderVO.getO_qty());
+				System.out.println("=================================");
+			} else {
+				System.out.println("데이터 변경 실패!!");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("SQL 문제 발생");
+			e.printStackTrace();
+		}
 		
 	}
 }

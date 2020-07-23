@@ -62,10 +62,8 @@ public class DBContract {
 			+ ORDER.COL_O_DATE_STR + "= ?,"
 			+ ORDER.COL_O_CNUM_STR + "= ?,"
 			+ ORDER.COL_O_PCODE_STR + "= ?,"
-//			+ ORDER.COL_O_PNAME_STR + "= ?,"
 			+ ORDER.COL_O_PRICE_INT + "= ?,"
-			+ ORDER.COL_O_QTY_INT + "= ?,"
-//			+ ORDER.COL_O_TOTAL_INT + "= ?" 
+			+ ORDER.COL_O_QTY_INT + "= ? "
 			+ " WHERE "
 			+ ORDER.COL_O_SEQ_LONG + "= ?"; 
 	
@@ -91,15 +89,15 @@ public class DBContract {
 		public final static String COL_O_QTY_INT 	= " o_qty ";	//	NUMBER
 		public final static String COL_O_TOTAL_INT 	= " o_total ";//	NUMBER
 
-		public final static int POS_O_SEQ_LONG 	= 	1;	//	NUMBER
-		public final static int POS_O_NUM_STR 	= 	2;	//	CHAR(6 BYTE)
-		public final static int POS_O_DATE_STR 	= 	3;	//	CHAR(10 BYTE)
-		public final static int POS_O_CNUM_STR 	= 	4;	//	CHAR(5 BYTE)
-		public final static int POS_O_PCODE_STR = 	5;	//	CHAR(6 BYTE)
-		public final static int POS_O_PNAME_STR = 	6;	//	NVARCHAR2(125 CHAR)
-		public final static int POS_O_PRICE_INT = 	7;	//	NUMBER
-		public final static int POS_O_QTY_INT 	= 	8;	//	NUMBER
-		public final static int POS_O_TOTAL_INT = 	9;	//	NUMBER
+//		public final static int POS_O_SEQ_LONG 	= 	1;	//	NUMBER
+//		public final static int POS_O_NUM_STR 	= 	2;	//	CHAR(6 BYTE)
+//		public final static int POS_O_DATE_STR 	= 	3;	//	CHAR(10 BYTE)
+//		public final static int POS_O_CNUM_STR 	= 	4;	//	CHAR(5 BYTE)
+//		public final static int POS_O_PCODE_STR = 	5;	//	CHAR(6 BYTE)
+//		public final static int POS_O_PNAME_STR = 	6;	//	NVARCHAR2(125 CHAR)
+//		public final static int POS_O_PRICE_INT = 	7;	//	NUMBER
+//		public final static int POS_O_QTY_INT 	= 	8;	//	NUMBER
+//		public final static int POS_O_TOTAL_INT = 	9;	//	NUMBER
 		
 	}
 	

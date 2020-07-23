@@ -112,7 +112,6 @@ public class OrderServiceImplV1 implements OrderService {
 	public OrderVO findBySeq(long seq) throws SQLException {
 
 		String sql = DBContract.ORDER_FIND_BY_SEQ;
-		System.out.println(sql);
 		PreparedStatement pSt = dbConn.prepareStatement(sql);
 		pSt.setLong(1, seq);
 		
@@ -122,6 +121,7 @@ public class OrderServiceImplV1 implements OrderService {
 		if(rSet.next()) {
 			
 			OrderVO orderVO = this.setOrderVO(rSet);
+			System.out.println(orderVO);
 			return orderVO;
 			
 		}
@@ -141,8 +141,9 @@ public class OrderServiceImplV1 implements OrderService {
 		pSt.setInt(5,orderVO.getO_price());
 		pSt.setInt(6,orderVO.getO_qty());
 		pSt.setLong(7,orderVO.getO_seq()); 		
-		
-		return 0;
+		int ret = pSt.executeUpdate();
+		return ret;
+	
 	}
 
 	@Override

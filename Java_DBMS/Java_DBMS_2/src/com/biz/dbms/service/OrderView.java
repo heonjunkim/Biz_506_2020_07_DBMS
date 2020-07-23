@@ -28,6 +28,17 @@ public class OrderView {
 			System.out.print(vo.getO_total() + "\n");
 		}
 		System.out.println(Lines.dLine);
-	}
+	} // end order list
 	
+	public void  orderDetailView(OrderVO orderVO) {
+		
+		System.out.println("=================================");
+		System.out.printf("주문번호 : %s\n",orderVO.getO_num());
+		System.out.printf("고객번호 : %s\n",orderVO.getO_cnum());
+		System.out.printf("상품코드 : %s\n",orderVO.getO_pcode());
+		System.out.printf("가격 : %d\n",orderVO.getO_price());
+		System.out.printf("수량 : %d\n",orderVO.getO_qty());
+		System.out.println("=================================");
+	
+	}
 }

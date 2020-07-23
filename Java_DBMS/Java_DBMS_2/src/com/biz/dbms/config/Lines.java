@@ -10,5 +10,13 @@ public class Lines {
 		dLine = line.replace("0","=");
 		sLine = line.replace("0","-");
 	}
+	
+	public static String getDLine(int length) {
+		return String.format("%0"+length+"d",0).replace("0", "=");
+	}
+	public static String getSLine(int length) {
+		return String.format("%0"+length+"d",0).replace("0", "-");
+	}
 
+	
 }
