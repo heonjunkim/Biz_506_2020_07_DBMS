@@ -57,6 +57,9 @@ public class OrderServiceImplV1 implements OrderService {
 		
 		// 날짜 칼럼 세팅
 		orderVO.setO_date(df.format(date));
+		
+		int total = orderVO.getO_price() * orderVO.getO_qty();
+		orderVO.setO_total(total);
 
 		int ret = orderDao.insert(orderVO);
 		return ret;
@@ -65,6 +68,10 @@ public class OrderServiceImplV1 implements OrderService {
 
 	@Override
 	public int update(OrderVO orderVO) {
+		
+		int total = orderVO.getO_price() * orderVO.getO_qty();
+		orderVO.setO_total(total);
+		
 		int ret = orderDao.update(orderVO);
 		return ret;
 	}
